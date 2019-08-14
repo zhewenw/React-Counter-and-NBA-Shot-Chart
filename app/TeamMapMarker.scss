@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+
+.playerbutton
+{
+	width: 100px;
+	height: 100px;
+	border: 2px solid #f5f5f5;
+	border-radius: 50%;
+	text-align: center;
+	background #46464646;
+	box-shadow: 0 0 3px gray;
+	text-decoration: none;
+	outline: none;
+	opacity: 1.0;
+
+}
+.playerimage
+{
+	width: 70px;
+	height: 70px;
+	border-radius: 80%
+	top: 50px;
+	text-align: center;
+	text-decoration: none;
+	opacity: 1.0
+
+}
+.selectedplayerbutton
+{
+	width: 100px;
+	height: 100px;
+	border: 2px solid #f5f5f5;
+	border-radius: 50%;
+	text-align: center;
+	background #46464646;
+	box-shadow: 0 0 10px red;
+	text-decoration: none;
+	outline: none;
+	opacity: 1.0;
+	
+}
+
+.playername
+{
+	font-family: 'Oswald', sans-serif;
+	font-size: 7.5px;
+}

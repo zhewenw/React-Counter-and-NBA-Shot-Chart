@@ -1,0 +1,74 @@
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.ticks_base {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+}
+
+.vertical {
+  composes: container;
+
+  height: 100%;
+  width: 100%;
+
+  .ticks {
+    @extend .ticks_base;
+    right: 0;
+    flex-direction: column-reverse;
+  }
+
+  .tick {
+    position: relative;
+    border-top: 1px solid red;
+    width: 10px;
+
+    .label {
+      position: absolute;
+      right: 20px;
+      transform: translate(0, -50%);
+    }
+  }
+
+  .line {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    border-right: 1px solid red;
+  }
+}
+
+.horizontal {
+  composes: container;
+
+  .ticks {
+    @extend .ticks_base;
+    flex-direction: row;
+  }
+
+  .tick {
+    position: relative;
+    border-left: 1px solid blue;
+    height: 10px;
+
+    .label {
+      position: absolute;
+      transform: translate(-50%, 0);
+      top: 10px;
+    }
+  }
+
+
+  .line {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    border-top: 1px solid blue;
+  }
+}
+
+

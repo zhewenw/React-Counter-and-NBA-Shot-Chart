@@ -1,0 +1,41 @@
+{
+  "pre": {
+    "shot": {
+      "collection": "shots",
+      "key": "(combine this.shooter_id)",
+      "fields": {
+        "count": ["sum", "1"],
+        "fg": ["sum", "(if this.outcome 1 0)"],
+        "fga": ["sum", "(if this.fouled (if this.outcome 1 0) 1)"],
+        "points": ["sum", "(if this.outcome (if this.three 3 2) 0)"],
+        "sefg": ["sum", "(if (or (not this.fouled) this.outcome) (/ this.sefg 100) 0)"],
+      }
+    },
+
+    "involved": {
+      "collection": "possessions",
+      "key": "(combine (seq this.players_involved)))",
+      "fields": {
+        "count": ["sum", "1"],
+      }
+    },
+
+    "possession": {
+      "key": "(map this.players_involved (fn [player-id] (list player-id)))",
+      "fields": {
+        "involved": ["sum", "1"],
+        "involvedShots": ["sum", "(count (.shots this))"],
+      }
+    },
+  },
+
+  "columns": [
+    "this.shot.fga",
+    "(if (= this.shot.fga 0.0) 0 (/ this.shot.points this.shot.fga 2))",
+    "(if (= this.shot.fga 0.0) 0 (/ this.shot.sefg this.shot.fga))",
+    "(if (= this.shot.fga 0.0) 0 (/ (- (/ this.shot.points 2) this.shot.sefg) this.shot.fga))",
+  ],
+
+  "rootFilters": {
+  }
+}

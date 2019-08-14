@@ -1,0 +1,29 @@
+@import '../../colors';
+
+.line {
+  width: 3px;
+  position: absolute;
+  width: 3px;
+  background-color: green;
+  transition: transform 2s ease-out;
+  height: 100%;
+  bottom: 0%;
+  z-index: -1;
+}
+
+.verticalMeanline {
+  @extend .line;
+  background-color: $red;
+}
+.verticalMedianline {
+  @extend .line;
+  background-color: $green;
+}
+.verticalModeline {
+  @extend .line;
+  background-color: $blue;
+}
+.verticalQuartileline {
+  @extend .line;
+  background-color: #FF7F50;
+}

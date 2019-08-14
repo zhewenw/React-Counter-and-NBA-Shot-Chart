@@ -1,0 +1,55 @@
+@import '../colors';
+
+.table {
+  border-collapse: collapse;
+}
+
+.th {
+  background-color: black;
+}
+
+.yValBefore {
+  padding-left: 30px;
+  padding-right: 25px;
+  visibility: hidden;
+}
+
+.yValAfter {
+  padding-left: 30px;
+  padding-right: 25px;
+}
+
+.playerNameBefore {
+  padding-left: 50px;
+  padding-right: 25px;
+  visibility: hidden;
+}
+
+.playerNameAfter{
+  padding-left: 50px;
+  padding-right: 25px;
+}
+
+.xValBefore {
+  border-radius: 50%;
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
+  width: 10px;
+  height: 10px;
+  background-color: $blue;
+  display: inline-block;
+}
+
+.selectedRow {
+  transition: transform 100ms ease-in-out;
+  color: $red;
+}
+
+.loadedTableRow:hover, .selectedRow:hover {
+  background-color: $yellow;
+}
+
+.loadedTableRow:hover {
+  color: $black;
+}

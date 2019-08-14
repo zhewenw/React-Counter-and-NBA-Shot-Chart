@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+.container {
+  position: absolute;
+  top: 30%;
+  left: 10px;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+}
+
+.container h2 {
+  font-size: 5rem;
+  font-family: 'Oswald', sans-serif;
+}
+
+.container a {
+  font-size: 1.4rem;
+  font-family: 'Oswald', sans-serif;
+}

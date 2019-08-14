@@ -1,0 +1,49 @@
+.main {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  margin-top: 20px;
+}
+
+.plot {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.vertical {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  bottom: 50px;
+}
+
+.horizontal {
+  position: absolute;
+  height: 50px;
+  left: 50px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.histogram {
+  .plot {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .bar {
+    flex-grow: 1;
+    height: 10px;
+    background-color: red;
+  }
+
+  .stats {
+    position: absolute;
+  }
+}

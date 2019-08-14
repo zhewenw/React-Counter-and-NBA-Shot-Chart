@@ -1,0 +1,57 @@
+/* eslint max-len: 0 */
+import webpack from 'webpack';
+import merge from 'webpack-merge';
+import baseConfig from './base';
+
+const port = process.env.PORT || 3000;
+
+export default merge(baseConfig, {
+  debug: true,
+
+  devtool: 'cheap-module-eval-source-map',
+
+  entry: [
+    `webpack-hot-middleware/client?path=http://localhost:${port}/__webpack_hmr`,
+    'babel-polyfill',
+    './app/index'
+  ],
+
+  output: {
+    publicPath: `http://localhost:${port}/dist/`
+  },
+
+  module: {
+    loaders: [
+      {
+        test: /\.global\.css$/,
+        loaders: [
+          'style-loader',
+          'css-loader?sourceMap'
+        ]
+      },
+
+      {
+        test: /^((?!\.global).)*\.css$/,
+        loaders: [
+          'style-loader',
+          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+        ]
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loader: 'style!css?modules&sourceMap&localIdentName=[local]___[hash:base64:5]!resolve-url!sass?outputStyle=expanded&sourceMap!'
+      },
+    ]
+  },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    })
+  ],
+
+  target: 'electron-renderer'
+});
