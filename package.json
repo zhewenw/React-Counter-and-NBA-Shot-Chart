@@ -90,7 +90,7 @@
     "minimist": "^1.2.0",
     "mocha": "^3.0.2",
     "node-libs-browser": "^1.0.0",
-    "node-sass": "^3.9.3",
+    "node-sass": "^4.14.1",
     "postcss": "^5.1.2",
     "react-addons-test-utils": "^15.3.1",
     "redux-immutable": "^3.0.8",
